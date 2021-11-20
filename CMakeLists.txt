@@ -33,5 +33,5 @@ configure_file ( # for exporting info to C++ (e.g. project version)
 
 #--------------------------- External dependencies: ----------------------------#
 include ( cmake/CPM.cmake )
-CPMAddPackage( "gh:falkgaard/fHash"  ) # TODO tag
-target_link_libraries ( fRNG PRIVATE fHash::fHash ) # <- add library dependency targets here
+CPMAddPackage( "gh:falkgaard/fHash#cbaa03f98f064f80073949e3fb3d5bc82aea9d10" )
+target_link_libraries ( fRNG INTERFACE fHash::fHash ) # <- add library dependency targets here
