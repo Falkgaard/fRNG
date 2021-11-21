@@ -15,6 +15,7 @@ set          ( CMAKE_POLICY_DEFAULT_CMP0069       NEW )
 set ( HEADERS
 	core.hh
 	info.hh
+	falk_rng.hh
 	# ^--- add sources here
 )
 
