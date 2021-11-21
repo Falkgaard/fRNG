@@ -32,6 +32,7 @@ configure_file ( # for exporting info to C++ (e.g. project version)
 # set_target_properties   ( ${PROJECT_NAME} PROPERTIES CXX_EXTENSIONS OFF                            ) # Ditto
 
 #--------------------------- External dependencies: ----------------------------#
+set( CMAKE_MODULE_PATH "${PROJECT_SOURCE_DIR}/cmake" ${CMAKE_MODULE_PATH} )
 include ( cmake/CPM.cmake )
 CPMAddPackage( "gh:falkgaard/fHash#cbaa03f98f064f80073949e3fb3d5bc82aea9d10" )
 target_link_libraries ( fRNG INTERFACE fHash::fHash ) # <- add library dependency targets here
