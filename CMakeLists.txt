@@ -21,6 +21,7 @@ set ( HEADERS
 add_library                ( ${PROJECT_NAME} INTERFACE ) 
 target_sources             ( ${PROJECT_NAME} INTERFACE ${CMAKE_CURRENT_SOURCE_DIR}/include/${PROJECT_NAME}/${HEADERS} )
 target_include_directories ( ${PROJECT_NAME} INTERFACE ${CMAKE_CURRENT_SOURCE_DIR}/include )
+target_link_libraries      ( ${PROJECT_NAME} PRIVATE ${PROJECT_NAME} )
 
 configure_file ( # for exporting info to C++ (e.g. project version)
 	${CMAKE_CURRENT_SOURCE_DIR}/include/${PROJECT_NAME}/info.h.in
