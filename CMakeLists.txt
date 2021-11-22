@@ -35,5 +35,5 @@ configure_file ( # for exporting info to C++ (e.g. project version)
 #--------------------------- External dependencies: ----------------------------#
 set( CMAKE_MODULE_PATH "${PROJECT_SOURCE_DIR}/cmake" ${CMAKE_MODULE_PATH} )
 include ( cmake/CPM.cmake )
-CPMAddPackage( "gh:falkgaard/fHash#effbda7f64a0a801ad09d6bfffaad32b15fd112e" )
+CPMAddPackage( "gh:falkgaard/fHash#6f7290bef5d7401799c5f8fed55770b97608f6d9" )
 target_link_libraries ( fRNG INTERFACE fHash::fHash ) # <- add library dependency targets here
