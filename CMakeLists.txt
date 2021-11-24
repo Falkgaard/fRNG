@@ -20,7 +20,7 @@ set ( HEADERS
 add_library                ( ${PROJECT_NAME} INTERFACE )
 target_compile_features    ( ${PROJECT_NAME} INTERFACE cxx_std_23 )
 target_sources             ( ${PROJECT_NAME} ${CMAKE_CURRENT_SOURCE_DIR}/include/${PROJECT_NAME}/${HEADERS} )
-target_include_directories ( ${PROJECT_NAME} include/ )
+target_include_directories ( ${PROJECT_NAME} INTERFACE include/ )
 # OLD # target_include_directories ( ${PROJECT_NAME} INTERFACE
 # OLD #     $<BUILD_INTERFACE:${${PROJECT_NAME}_SOURCE_DIR}>
 # OLD #     $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>
