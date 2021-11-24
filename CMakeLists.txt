@@ -12,31 +12,28 @@ set          ( CMAKE_INTERPROCEDURAL_OPTIMIZATION  ON )
 cmake_policy ( SET                  CMP0069       NEW )
 set          ( CMAKE_POLICY_DEFAULT_CMP0069       NEW )
 
+set ( HEADERS
+	core.h
+	info.h
+)
 include                    ( GNUInstallDirs )
 add_library                ( ${PROJECT_NAME} INTERFACE )
 target_compile_features    ( ${PROJECT_NAME} INTERFACE cxx_std_23 )
+target_sources             ( ${PROJECT_NAME} INTERFACE ${CMAKE_CURRENT_SOURCE_DIR}/include/${PROJECT_NAME}/${HEADERS} )
 target_include_directories ( ${PROJECT_NAME} INTERFACE
     $<BUILD_INTERFACE:${${PROJECT_NAME}_SOURCE_DIR}>
     $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>
 )
+# OLD: target_include_directories ( ${PROJECT_NAME} INTERFACE ${CMAKE_CURRENT_SOURCE_DIR}/include )
 
 configure_file ( # for exposing info to C++ (e.g. project version)
 	${CMAKE_CURRENT_SOURCE_DIR}/cmake/info.h.in
 	${CMAKE_CURRENT_SOURCE_DIR}/include/${PROJECT_NAME}/info.h
 )
 
-# OLD (TODO: remove?)
-# set ( HEADERS
-# 	core.h
-# 	info.h
-# )
-# add_library                ( ${PROJECT_NAME} INTERFACE ) 
-# target_sources             ( ${PROJECT_NAME} INTERFACE ${CMAKE_CURRENT_SOURCE_DIR}/include/${PROJECT_NAME}/${HEADERS} )
-# target_include_directories ( ${PROJECT_NAME} INTERFACE ${CMAKE_CURRENT_SOURCE_DIR}/include )
-
 #---------------------------------- Testing: ----------------------------------#
 
-# TODO: doctest
+# TODO: switch to doctest instead
 # find_package( Catch2 REQUIRED )
 # add_executable( fRNG_test test/test.cc )
 # target_link_libraries( fRNG_test PRIVATE Catch2::Catch2 )
@@ -100,6 +97,5 @@ install(
 )
 
 # OLD (TODO: remove?)
-# target_compile_features ( ${PROJECT_NAME} PUBLIC cxx_std_23                                        ) # Set C++ standard to C++2b
 # target_compile_options  ( ${PROJECT_NAME} PUBLIC "$<$<COMPILE_LANG_AND_ID:CXX,MSVC>:/permissive->" ) # To help ensure cross-platform compatibility
 # set_target_properties   ( ${PROJECT_NAME} PROPERTIES CXX_EXTENSIONS OFF                            ) # Ditto
