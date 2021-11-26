@@ -1,3 +1,6 @@
+# Generated headeres
+include/fRNG/info.h
+
 # Directories
 tmp/
 bin/
