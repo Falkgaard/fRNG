@@ -1,2 +1,0 @@
-#define FRNG_VERSION_MAJOR 0
-#define FRNG_VERSION_MINOR 1

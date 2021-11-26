@@ -1,5 +1,5 @@
 # Generated headeres
-include/fRNG/info.h
+include/fRNG/info.hh
 
 # Directories
 tmp/
