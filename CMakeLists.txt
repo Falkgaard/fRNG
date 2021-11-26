@@ -18,10 +18,10 @@ set          ( CMAKE_INTERPROCEDURAL_OPTIMIZATION  ON )
 cmake_policy ( SET                  CMP0069       NEW )
 set          ( CMAKE_POLICY_DEFAULT_CMP0069       NEW )
 
-add_subdirectory           ( include/${PROJECT_NAME} )
+add_subdirectory           ( "include/${PROJECT_NAME}/" )
 add_library                ( ${PROJECT_NAME} INTERFACE )
 target_compile_features    ( ${PROJECT_NAME} INTERFACE cxx_std_23 )
-target_include_directories ( ${PROJECT_NAME} INTERFACE include/ )
+target_include_directories ( ${PROJECT_NAME} INTERFACE "include/")
 
 set ( CMAKE_MODULE_PATH "${PROJECT_SOURCE_DIR}/cmake" ${CMAKE_MODULE_PATH} )
 include ( cmake/CPM.cmake )
