@@ -19,7 +19,7 @@ cmake_policy ( SET                  CMP0069       NEW )
 set          ( CMAKE_POLICY_DEFAULT_CMP0069       NEW )
 
 add_library                ( ${PROJECT_NAME} INTERFACE )
-target_compile_features    ( ${PROJECT_NAME} INTERFACE cxx_std_23 )
+target_compile_features    ( ${PROJECT_NAME} INTERFACE cxx_std_20 )
 target_include_directories ( ${PROJECT_NAME} INTERFACE "include/")
 add_subdirectory           ( "include/${PROJECT_NAME}/" )
 
